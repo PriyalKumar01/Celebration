@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Mummy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0f0f0f;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .celebration {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.gifer.com/origin/5d/5d8b1764b303c2b20a7c7b84a3d4ae69.gif') center/cover no-repeat;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      font-size: 2.8rem;
+      font-family: 'Great Vibes', cursive;
+      color: #ff4da6;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    .open-card-btn, .download-btn {
+      display: block;
+      margin: 1rem auto;
+      padding: 1rem 2rem;
+      background: #ff4da6;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      animation: bounce 1s infinite alternate;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .card {
+      display: none;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid #ff4da6;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #ff4da6;
+      animation: slideUp 1.2s ease-in-out forwards;
+    }
+
+    .card h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      text-align: center;
+      color: #ff66c4;
+      margin-bottom: 1.5rem;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      text-align: center;
+      color: #e6e6e6;
+      margin-bottom: 2rem;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 3px solid #ff4da6;
+      box-shadow: 0 0 10px #ff66c4;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .gallery img:hover {
+      transform: rotate(3deg) scale(1.1);
+      box-shadow: 0 0 20px #ff99cc;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1rem;
+      font-size: 1rem;
+      color: #cccccc;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes slideUp {
+      from {opacity: 0; transform: translateY(50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes bounce {
+      0% {transform: translateY(0);}
+      100% {transform: translateY(-10px);}
+    }
+  </style>
+</head>
+<body>
+  <div class="celebration"></div>
+
+  <audio autoplay loop>
+  <source src="birthday-song.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+  <header>
+    🎉 Happy Birthday Dear Mummy 🎂
+  </header>
+
+  <button class="open-card-btn" onclick="document.querySelector('.card').style.display='block'">
+    Open Card 💝
+  </button>
+
+  <div class="card">
+    <h2>To the Queen of our Hearts 💖</h2>
+    <p>Wishing you a day filled with love, laughter, and all the happiness you bring into our lives. You are our strength, our smile, and our everything. Happy Birthday Mummy! 🥰</p>
+
+    <div class="gallery">
+      <img src="ea64d8bf-03f1-4144-81f5-26e5074425e0.jpg" alt="Mummy 1">
+      <img src="8f33c5d1-bc75-4373-8ffa-f230e46af8d1.jpg" alt="Mummy 2">
+      <img src="34204ce5-6924-40e5-b307-819f439ceb5e.jpg" alt="Mummy 3">
+      <img src="5d0b443b-3a22-42c8-89b3-1bf5f6524a85.jpg" alt="Mummy 4">
+    </div>
+
+    <a href="#" onclick="window.print()" class="download-btn">🎁 Save Wishes</a>
+  </div>
+
+  <footer>
+    With ❤️ Created by Priyal Kumar
+  </footer>
+</body>
+</html>
