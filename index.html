@@ -37,7 +37,7 @@
       animation: fadeIn 2s ease-in-out forwards;
     }
 
-    .open-card-btn, .download-btn {
+    .open-card-btn, .download-btn, .close-btn, .mute-btn {
       display: block;
       margin: 1rem auto;
       padding: 1rem 2rem;
@@ -123,37 +123,39 @@
       0% {transform: translateY(0);}
       100% {transform: translateY(-10px);}
     }
+
+    @media (max-width: 600px) {
+      header {
+        font-size: 2rem;
+      }
+      .gallery img {
+        width: 150px;
+        height: 200px;
+      }
+      .card h2 {
+        font-size: 1.8rem;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="celebration"></div>
 
   <audio id="bg-music" loop>
-  <source src="birthday-song.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
-
+    <source src="birthday-song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
   <header>
     🎉 Happy Birthday Dear Mummy 🎂
   </header>
 
-  <!-- <button class="open-card-btn" onclick="document.querySelector('.card').style.display='block'">
+  <button class="open-card-btn" onclick="openCardAndPlay()">
     Open Card 💝
-  </button> -->
+  </button>
+  <button class="mute-btn" onclick="toggleMute()">🔊 Mute/Unmute</button>
 
-  <button class="open-card-btn" onclick="playMusic(); document.querySelector('.card').style.display='block'">
-  Open Card 💝
-</button>
-
-<script>
-  function playMusic() {
-    const audio = document.getElementById('bg-music');
-    audio.play();
-  }
-</script>
-
-  <div class="card">
+  <div class="card" id="card">
     <h2>To the Queen of our Hearts 💖</h2>
     <p>Wishing you a day filled with love, laughter, and all the happiness you bring into our lives. You are our strength, our smile, and our everything. Happy Birthday Mummy! 🥰</p>
 
@@ -165,10 +167,54 @@
     </div>
 
     <a href="#" onclick="window.print()" class="download-btn">🎁 Save Wishes</a>
+    <button class="close-btn" onclick="closeCard()">Close Card ✖️</button>
   </div>
 
   <footer>
     With ❤️ Created by Priyal Kumar
   </footer>
+
+  <script>
+    function openCardAndPlay() {
+      document.getElementById('card').style.display = 'block';
+      const audio = document.getElementById('bg-music');
+      audio.play().catch(e => console.log("Autoplay Blocked:", e));
+      confetti();
+    }
+
+    function closeCard() {
+      document.getElementById('card').style.display = 'none';
+    }
+
+    function toggleMute() {
+      const audio = document.getElementById('bg-music');
+      audio.muted = !audio.muted;
+    }
+
+    function confetti() {
+      const end = Date.now() + 1000;
+      const colors = ['#bb0000', '#ffffff'];
+      (function frame() {
+        confettiEffect({
+          particleCount: 3,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: colors
+        });
+        confettiEffect({
+          particleCount: 3,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: colors
+        });
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </body>
 </html>
