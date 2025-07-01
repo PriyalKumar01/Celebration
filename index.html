@@ -128,8 +128,8 @@
 <body>
   <div class="celebration"></div>
 
-  <audio autoplay loop>
-  <source src="birthday-song.mp3" type="audio/mpeg">
+  <audio id="bg-music" loop>
+  <source src="birthday-song.mp3" type="audio/mpeg" />
   Your browser does not support the audio element.
 </audio>
 
@@ -138,9 +138,20 @@
     🎉 Happy Birthday Dear Mummy 🎂
   </header>
 
-  <button class="open-card-btn" onclick="document.querySelector('.card').style.display='block'">
+  <!-- <button class="open-card-btn" onclick="document.querySelector('.card').style.display='block'">
     Open Card 💝
-  </button>
+  </button> -->
+
+  <button class="open-card-btn" onclick="playMusic(); document.querySelector('.card').style.display='block'">
+  Open Card 💝
+</button>
+
+<script>
+  function playMusic() {
+    const audio = document.getElementById('bg-music');
+    audio.play();
+  }
+</script>
 
   <div class="card">
     <h2>To the Queen of our Hearts 💖</h2>
